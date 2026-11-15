@@ -1,0 +1,80 @@
+#api call for create owner
+###
+POST http://127.0.0.1:8000/owner/register/
+Content-Type: application/json
+
+{
+  "username":"owner",
+  "email":"owner@gmail.com",
+  "password":"owner@123"
+}
+
+#api call for create patient
+###
+POST  http://127.0.0.1:8000/patient/register/
+Content-Type: application/json
+
+{
+  "username":"patient",
+  "email":"patient@gmail.com",
+  "password":"patient@123"
+}
+# api call for listing doctor
+###
+GET http://127.0.0.1:8000/doctor/
+Accept: application/json
+Authorization: Basic owner:owner@123
+
+
+# api call for creating doctor
+###
+POST http://127.0.0.1:8000/doctor/
+Content-Type: application/json
+
+{
+   "name":"gopinath",
+   "specilaization":"nerology",
+   "experience":3,
+   "fee":350 
+}
+
+# api call for doctor detail
+###
+GET http://127.0.0.1:8000/doctor/1/
+Accept: application/json
+
+# api call for update doctor
+###
+PUT http://127.0.0.1:8000/doctor/1/
+Content-Type: application/json
+
+{
+    "id": 1,
+    "name": "rajeev",
+    "specilaization": "orthology",
+    "experience": 4,
+    "fee": 350
+  }
+
+# api call for delete doctor 
+###
+DELETE http://127.0.0.1:8000/doctor/1/
+Accept: application/json
+
+
+#api call for create appoinment
+###
+POST http://127.0.0.1:8000/appointment/
+Content-Type: application/json
+Authorization: Basic  patient:patient@123
+
+{
+  "name":"lakshmi",
+  "phone":"95678923",
+  "email":"lakshmi@gmail.com",
+  "doctor":2,
+  "appointment_date":"2026-11-11",
+  "appointment_time":"6:00",
+  "duration":15,
+  "token":10
+}
